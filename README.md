@@ -2,17 +2,13 @@
 A new TMXAnimation class that supports tile animation of TMX tiledmap in layer-level, based on cocos2dx 3.17.2
 
 # To support animated tiles in your project, you need:
-1. Copy files CCTMXAnimation.cpp , CCTMXAnimation.h
-in the directory C:\Cocos\projects\JawsClaws\cocos2d\cocos\2d
+`In the directory C:\Cocos\projects\JawsClaws\cocos2d\cocos\2d`
 
-2. replace files CCFastTMXLayer.cpp , CCTMXXMLParser.cpp , CCTMXXMLParser.h.
-in the directory C:\Cocos\projects\JawsClaws\cocos2d\cocos\2d
-or
-and make changes to the files CCFastTMXLayer.cpp , CCTMXXMLParser.cpp , CCTMXXMLParser.h.
-in the directory C:\Cocos\projects\JawsClaws\cocos2d\cocos\2d
+**1. Copy files CCTMXAnimation.cpp , CCTMXAnimation.h**
 
+**2. Replace or make changes to the files CCFastTMXLayer.cpp, CCTMXXMLParser.cpp , CCTMXXMLParser.h**
 
-**File CCFastTMXLayer.cpp**
+*File CCFastTMXLayer.cpp*
 
 line 49 add header file connection
 ```
@@ -26,19 +22,19 @@ if (animation)
        animation->initAnimation(this, _layerSize);
 ```
 
-**File CCTMXXMLParser.h**
+*File CCTMXXMLParser.h*
 
 line 47 add forward declarations
 ```
 class TMXAnimation;
 ```
-line 149 add a pointer to TMXAnimation immediately after std::string _original source image
+line 149 add a pointer to class `TMXAnimation` immediately after `std::string     _originSourceImage;`
 
 ```
 // pointer to the tile animation class
 TMXAnimation *_animation;
 ```
-**File CCTMXXMLParser.cpp**
+*File CCTMXXMLParser.cpp*
 
 line 677 after the code
 ```
@@ -75,12 +71,10 @@ else if (elementName == "frame")
        }
 }
 ```
-
 # How To Use
 Use the cocos2d-x cocos2d::experimental::TMXTiledMap class
 ```
 auto map = cocos2d::experimental::TMXTiledMap::create(levelPath);
 ```
-
 # ShowCase
 ![This is an image](showcase.gif)
