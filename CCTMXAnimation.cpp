@@ -103,7 +103,7 @@ void TMXAnimation::update(float dt)
 {
 	for (auto it = _animationsInfo.begin(); it != _animationsInfo.end(); ++it)
 	{
-		(*it).time =  (uint32_t)(dt * Milliseconds);
+		(*it).time += (uint32_t)(dt * Milliseconds);
 		if ((*it).time >= (*(*it).frameIt).duration)
 		{
 			(*it).time = 0;
