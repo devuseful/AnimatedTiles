@@ -136,7 +136,7 @@ protected:
 	};
 
 	// list information about all animations
-	std::vector<TMXAnimationInfo> _animationsInfo;
+	std::list<TMXAnimationInfo> _animationsInfo;
 	// pointer to the layer TMXLayer
 	experimental::TMXLayer *_layer;
 
