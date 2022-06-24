@@ -111,7 +111,6 @@ protected:
 	struct TMXAnimationInfo
 	{
 		TMXAnimationInfo(uint32_t gid) :
-			pos(Vec2::ZERO),
 			time(0),
 			frameIt(framesInfo.begin())
 		{
@@ -125,7 +124,7 @@ protected:
 		// Tile ID in map
 		uint32_t gid;
 		// Tile position with animation
-		Vec2 pos;
+		std::vector<Vec2> pos;
 		// List of animation frames
 		std::vector<TMXFrameInfo> framesInfo;
 		// Frame iterator
