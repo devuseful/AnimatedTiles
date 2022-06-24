@@ -88,7 +88,7 @@ void TMXAnimation::initAnimation(experimental::TMXLayer *layer, const Size &size
 				int tileIndex = x + y * (int)size.width;
 				if (layer->getTiles()[tileIndex] == (*it).gid)
 				{
-					(*it).pos = Vec2(x, y);
+					(*it).pos.push_back(Vec2(x, y));
 				}
 			}
 		}
@@ -110,8 +110,11 @@ void TMXAnimation::update(float dt)
 			++(*it).frameIt;
 			if ((*it).frameIt == (*it).framesInfo.end())
 				(*it).frameIt = (*it).framesInfo.begin();
-
-			_layer->setTileGID((*(*it).frameIt).tileId, (*it).pos);
+			
+			for (auto itPos = (*it).pos.begin(); itPos != (*it).pos.end(); ++itPos)
+			{
+				_layer->setTileGID((*(*it).frameIt).tileId, (*itPos));
+			}
 		}
 	}
 }
